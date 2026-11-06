@@ -141,7 +141,7 @@
                         </div>
                         <input type="hidden" id="selectedDate" required>
                         <p id="dateSelectedDisplay" class="mt-2 text-sm font-semibold text-amber-900 flex items-center gap-1.5">
-                            <i data-lucide="info" class="w-4 h-4 text-amber-600"></i> Please select an available highlighted date above.
+                            <i data-lucide="info" class="w-4 h-4 text-amber-600"></i> Please select an available highlighted future date above (same-day requests not permitted).
                         </p>
                     </div>
 
@@ -361,6 +361,7 @@
             const grid = document.getElementById('calendarGrid');
             grid.innerHTML = '';
 
+            // Today's date with time zeroed out
             const today = new Date();
             today.setHours(0, 0, 0, 0);
 
@@ -377,10 +378,11 @@
 
                 // Crown Wellness Operating Days: Monday (1) through Friday (5)
                 const isMonToFri = (dayOfWeek >= 1 && dayOfWeek <= 5);
-                const isFutureOrToday = dateObj >= today;
+                // MUST BE STRICTLY IN THE FUTURE (NO SAME DAY REQUESTS)
+                const isStrictlyFuture = dateObj > today;
                 const isNotHoliday = !KATY_ISD_EXCLUDED_DATES.includes(dateStr);
 
-                const isAllowed = isMonToFri && isFutureOrToday && isNotHoliday;
+                const isAllowed = isMonToFri && isStrictlyFuture && isNotHoliday;
 
                 const btn = document.createElement('button');
                 btn.type = 'button';
@@ -421,7 +423,7 @@
             event.preventDefault();
 
             if (!selectedCalendarDate) {
-                alert("Please select an available Monday through Friday date on the calendar.");
+                alert("Please select an available future date on the calendar.");
                 return;
             }
 
@@ -472,7 +474,7 @@
                 document.getElementById('pickupForm').reset();
                 selectedCalendarDate = null;
                 document.getElementById('selectedDate').value = '';
-                document.getElementById('dateSelectedDisplay').innerHTML = `<i data-lucide="info" class="w-4 h-4 text-amber-600"></i> Please select an available highlighted date above.`;
+                document.getElementById('dateSelectedDisplay').innerHTML = `<i data-lucide="info" class="w-4 h-4 text-amber-600"></i> Please select an available highlighted future date above.`;
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = `<i data-lucide="send"></i> Request Scanned Authorization Form`;
                 renderCalendar();
