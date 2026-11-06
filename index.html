@@ -1,9 +1,16 @@
+Here is your fully updated **`index.html`** code incorporating Crown Wellness Center's exact address (**777 S. Fry Rd. Ste 103, Katy, TX 77450**), physician name (**Dr. Lauren Bhattacharya**), and operating hours (**Monday – Friday, 8:00 AM – 4:30 PM**).
+
+The time slot options have also been updated to align with their 4:30 PM closing time.
+
+Copy and replace the entire contents of your `index.html` file on GitHub with this code:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physical Authorization Form Pick-Up Scheduler</title>
+    <title>DOT Physical Authorization Form Request Portal</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -29,7 +36,7 @@
         <div class="max-w-5xl mx-auto px-4 py-6">
             <div class="text-center md:text-left">
                 <h1 onclick="promptAdminAccess()" class="text-2xl md:text-3xl font-black tracking-tight leading-tight cursor-pointer hover:text-amber-200 transition select-none" title="Click for Admin Access">
-                    PHYSICAL AUTHORIZATION FORM PICK-UP SCHEDULER
+                    DOT PHYSICAL AUTHORIZATION REQUEST PORTAL
                 </h1>
                 <p class="text-amber-100 text-sm font-medium mt-1">Katy ISD Transportation Department</p>
             </div>
@@ -41,46 +48,53 @@
         <!-- ================= PUBLIC FORM VIEW ================= -->
         <div id="formTab" class="space-y-6">
 
-            <!-- Location & Instructions Card -->
+            <!-- Clinic Info & Operating Hours Card -->
             <div class="bg-amber-900 text-white rounded-2xl shadow-xl p-6 border-l-8 border-amber-500">
                 <div class="flex items-start gap-4">
                     <div class="p-3 bg-white/10 rounded-xl backdrop-blur-sm text-amber-300">
-                        <i data-lucide="map-pin" class="w-8 h-8"></i>
+                        <i data-lucide="building-2" class="w-8 h-8"></i>
                     </div>
-                    <div class="space-y-2">
+                    <div class="space-y-2 w-full">
                         <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                            Pick-Up Location & Arrival Instructions
+                            Crown Wellness Center — Clinic Details & Process
                         </h2>
-                        <div class="bg-amber-950/70 p-3 rounded-lg border border-amber-700/50">
-                            <p class="font-bold text-amber-300 text-lg">South Transportation Center</p>
-                            <p class="text-slate-200">3151 Falcon Landing Blvd, Katy, TX 77494</p>
+                        <div class="bg-amber-950/70 p-3.5 rounded-lg border border-amber-700/50 space-y-1">
+                            <p class="font-bold text-amber-300 text-lg">Dr. Lauren Bhattacharya</p>
+                            <p class="text-slate-200 text-sm flex items-center gap-1.5">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i>
+                                777 S. Fry Rd., Ste 103, Katy, TX 77450
+                            </p>
+                            <p class="text-slate-300 text-xs font-semibold pt-1">
+                                Hours of Operation: Monday – Friday | 8:00 AM – 4:30 PM
+                            </p>
                         </div>
                         <div class="text-sm text-amber-100 space-y-1 pt-1">
-                            <p class="flex items-center gap-2"><i data-lucide="bell" class="w-4 h-4 text-amber-400"></i> <strong>Upon Arrival:</strong> Please ring the doorbell and let Dispatch know you are here to pick up a form.</p>
-                            <p class="flex items-center gap-2"><i data-lucide="user-check" class="w-4 h-4 text-emerald-400"></i> Dispatch will notify us, and we will bring out your form and physical exam details.</p>
+                            <p class="flex items-center gap-2"><i data-lucide="mail-check" class="w-4 h-4 text-emerald-400"></i> Submit this form to request your pre-filled physical authorization form.</p>
+                            <p class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-amber-300"></i> We will complete your form, scan it, and email it directly to your inbox.</p>
+                            <p class="flex items-center gap-2"><i data-lucide="printer" class="w-4 h-4 text-amber-400"></i> Print out the scanned PDF from your email and take it to Crown Wellness Center.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Mandatory Physical ID Notice Banner -->
+            <!-- Mandatory Badge ID Notice -->
             <div class="bg-amber-100/80 border-2 border-amber-300 rounded-xl p-4 flex items-center gap-4 text-amber-950 shadow-sm">
                 <div class="p-2 bg-amber-200 text-amber-900 rounded-lg">
                     <i data-lucide="id-card" class="w-6 h-6"></i>
                 </div>
                 <div>
-                    <h3 class="font-bold text-base uppercase tracking-wide text-amber-900">Physical Badge ID Required</h3>
-                    <p class="text-sm">You <strong>MUST bring a physical copy of your Badge ID</strong> when you arrive so that we can validate and release your authorization form.</p>
+                    <h3 class="font-bold text-base uppercase tracking-wide text-amber-900">Physical Badge ID Required at Clinic</h3>
+                    <p class="text-sm">When arriving at Crown Wellness Center, you <strong>MUST bring your printed authorization form and your physical Badge ID</strong>.</p>
                 </div>
             </div>
 
-            <!-- Main Scheduling Form Card -->
+            <!-- Main Request Form -->
             <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
                 <div class="bg-slate-800 text-white px-6 py-4 border-b border-slate-700 flex justify-between items-center">
                     <h3 class="font-bold text-lg flex items-center gap-2">
-                        <i data-lucide="file-text" class="text-amber-400"></i> Employee Information & Pick-Up Time
+                        <i data-lucide="file-text" class="text-amber-400"></i> Employee Information & Preferred Exam Schedule
                     </h3>
-                    <span class="text-xs bg-slate-700 px-3 py-1 rounded-full text-slate-300 font-medium">Tue - Thu Only (Excludes District Holidays)</span>
+                    <span class="text-xs bg-slate-700 px-3 py-1 rounded-full text-slate-300 font-medium">Mon - Fri Clinic Schedule</span>
                 </div>
 
                 <form id="pickupForm" onsubmit="handleFormSubmit(event)" class="p-6 md:p-8 space-y-6">
@@ -104,7 +118,7 @@
                             <input type="tel" id="phoneNumber" required placeholder="(281) 555-0199" class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-amber-600 outline-none transition">
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">Your Email Address *</label>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Email Address (Form will be sent here) *</label>
                             <input type="email" id="applicantEmail" required placeholder="employee@katyisd.org" class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-amber-600 outline-none transition">
                         </div>
                     </div>
@@ -117,7 +131,7 @@
 
                     <!-- Date Selection -->
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-1">Select Pick-Up Date (Tuesday – Thursday Only) *</label>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Select Intended Exam Date at Crown Wellness Center (Mon – Fri) *</label>
                         <div class="border border-amber-200 rounded-xl p-4 bg-amber-50/50">
                             <div class="flex items-center justify-between mb-4">
                                 <span id="currentMonthYear" class="font-bold text-slate-800"></span>
@@ -128,7 +142,7 @@
                             </div>
                             
                             <div class="grid grid-cols-7 gap-1 text-center text-xs font-bold text-slate-500 mb-2">
-                                <div>Sun</div><div>Mon</div><div class="text-amber-800">Tue</div><div class="text-amber-800">Wed</div><div class="text-amber-800">Thu</div><div>Fri</div><div>Sat</div>
+                                <div>Sun</div><div class="text-amber-800">Mon</div><div class="text-amber-800">Tue</div><div class="text-amber-800">Wed</div><div class="text-amber-800">Thu</div><div class="text-amber-800">Fri</div><div>Sat</div>
                             </div>
                             <div id="calendarGrid" class="grid grid-cols-7 gap-1"></div>
                         </div>
@@ -140,38 +154,38 @@
 
                     <!-- Time Slot Options -->
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Select Pick-Up Time *</label>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Select Intended Exam Time Slot *</label>
                         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+                            <label class="border-2 border-slate-200 rounded-xl p-3 text-center cursor-pointer hover:border-amber-500 transition has-[:checked]:border-amber-700 has-[:checked]:bg-amber-100/70">
+                                <input type="radio" name="timeSlot" value="8:30 AM" required class="sr-only">
+                                <div class="font-bold text-slate-800 text-sm">8:30 AM</div>
+                            </label>
+
                             <label class="border-2 border-slate-200 rounded-xl p-3 text-center cursor-pointer hover:border-amber-500 transition has-[:checked]:border-amber-700 has-[:checked]:bg-amber-100/70">
                                 <input type="radio" name="timeSlot" value="10:00 AM" required class="sr-only">
                                 <div class="font-bold text-slate-800 text-sm">10:00 AM</div>
                             </label>
 
                             <label class="border-2 border-slate-200 rounded-xl p-3 text-center cursor-pointer hover:border-amber-500 transition has-[:checked]:border-amber-700 has-[:checked]:bg-amber-100/70">
-                                <input type="radio" name="timeSlot" value="11:00 AM" required class="sr-only">
-                                <div class="font-bold text-slate-800 text-sm">11:00 AM</div>
+                                <input type="radio" name="timeSlot" value="11:30 AM" required class="sr-only">
+                                <div class="font-bold text-slate-800 text-sm">11:30 AM</div>
                             </label>
 
                             <label class="border-2 border-slate-200 rounded-xl p-3 text-center cursor-pointer hover:border-amber-500 transition has-[:checked]:border-amber-700 has-[:checked]:bg-amber-100/70">
-                                <input type="radio" name="timeSlot" value="12:00 PM" required class="sr-only">
-                                <div class="font-bold text-slate-800 text-sm">12:00 PM</div>
+                                <input type="radio" name="timeSlot" value="1:30 PM" required class="sr-only">
+                                <div class="font-bold text-slate-800 text-sm">1:30 PM</div>
                             </label>
 
                             <label class="border-2 border-slate-200 rounded-xl p-3 text-center cursor-pointer hover:border-amber-500 transition has-[:checked]:border-amber-700 has-[:checked]:bg-amber-100/70">
                                 <input type="radio" name="timeSlot" value="3:00 PM" required class="sr-only">
                                 <div class="font-bold text-slate-800 text-sm">3:00 PM</div>
                             </label>
-
-                            <label class="border-2 border-slate-200 rounded-xl p-3 text-center cursor-pointer hover:border-amber-500 transition has-[:checked]:border-amber-700 has-[:checked]:bg-amber-100/70">
-                                <input type="radio" name="timeSlot" value="4:00 PM" required class="sr-only">
-                                <div class="font-bold text-slate-800 text-sm">4:00 PM</div>
-                            </label>
                         </div>
                     </div>
 
                     <!-- Submit Button -->
                     <button type="submit" id="submitBtn" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition flex items-center justify-center gap-2 text-base">
-                        <i data-lucide="send"></i> Confirm & Submit Pick-Up Request
+                        <i data-lucide="send"></i> Request Scanned Authorization Form
                     </button>
                 </form>
             </div>
@@ -184,7 +198,7 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
                     <div>
                         <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-                            <i data-lucide="database" class="text-amber-800"></i> Private Pickup Request Roster
+                            <i data-lucide="database" class="text-amber-800"></i> Private Physical Form Requests
                         </h2>
                         <p class="text-slate-500 text-sm">Protected response data viewable only by administrator.</p>
                     </div>
@@ -214,7 +228,7 @@
                                 <th class="p-3">Employee Name</th>
                                 <th class="p-3">Phone & Email</th>
                                 <th class="p-3">Campus / Center</th>
-                                <th class="p-3">Pickup Date</th>
+                                <th class="p-3">Exam Date</th>
                                 <th class="p-3">Time</th>
                                 <th class="p-3">Action</th>
                             </tr>
@@ -234,36 +248,30 @@
                 <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3">
                     <i data-lucide="check-circle-2" class="w-8 h-8"></i>
                 </div>
-                <h3 class="text-xl font-bold text-slate-900">Pickup Request Confirmed!</h3>
-                <p class="text-slate-500 text-sm mt-1">A confirmation email has been sent to your email address.</p>
+                <h3 class="text-xl font-bold text-slate-900">Request Successfully Submitted!</h3>
+                <p class="text-slate-500 text-sm mt-1">We have received your physical form request.</p>
             </div>
 
             <div class="bg-amber-50/80 p-4 rounded-xl border border-amber-200 space-y-2 text-sm text-slate-800">
                 <p><strong>Employee:</strong> <span id="modalName" class="font-semibold"></span></p>
-                <p><strong>Email Sent To:</strong> <span id="modalEmail" class="font-semibold text-amber-900"></span></p>
-                <p><strong>Location:</strong> South Transportation Center (3151 Falcon Landing Blvd)</p>
-                <p><strong>Scheduled Date:</strong> <span id="modalDate" class="font-bold text-amber-900"></span></p>
-                <p><strong>Time:</strong> <span id="modalTime" class="font-bold text-amber-900"></span></p>
+                <p><strong>Form Delivery Email:</strong> <span id="modalEmail" class="font-semibold text-amber-900"></span></p>
+                <p><strong>Clinic:</strong> Crown Wellness Center (Dr. Lauren Bhattacharya)</p>
+                <p><strong>Address:</strong> 777 S. Fry Rd., Ste 103, Katy, TX 77450</p>
+                <p><strong>Intended Date:</strong> <span id="modalDate" class="font-bold text-amber-900"></span></p>
+                <p><strong>Intended Time:</strong> <span id="modalTime" class="font-bold text-amber-900"></span></p>
             </div>
 
-            <!-- Email Notification Alert Box -->
             <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-lg text-xs text-emerald-950 flex items-start gap-2">
                 <i data-lucide="mail-check" class="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5"></i>
-                <p><strong>Email Confirmation Sent:</strong> Please check your inbox for your appointment details. You can also save or screenshot this reminder below.</p>
+                <p><strong>Next Step:</strong> We are completing your authorization paperwork. Once processed and signed, your scanned form will be emailed directly to your inbox so you can print it out for Crown Wellness Center.</p>
             </div>
 
-            <div class="bg-amber-100/60 border border-amber-300 p-3 rounded-lg text-xs text-amber-950 flex items-start gap-2">
-                <i data-lucide="id-card" class="w-5 h-5 text-amber-900 flex-shrink-0 mt-0.5"></i>
-                <p><strong>Reminder:</strong> You <u>MUST bring a physical copy of your Badge ID</u> when you arrive so Dispatch can release your form.</p>
-            </div>
-
-            <!-- Download Calendar & Print/Screenshot Options -->
             <div class="space-y-2 no-print">
                 <button onclick="downloadCalendarEvent()" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 text-sm shadow">
-                    <i data-lucide="calendar-plus"></i> Add to Calendar (.ics File)
+                    <i data-lucide="calendar-plus"></i> Add Appointment Reminder to Calendar
                 </button>
                 <button onclick="window.print()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold py-2.5 px-4 rounded-xl transition flex items-center justify-center gap-2 text-sm border border-slate-300">
-                    <i data-lucide="printer"></i> Print or Save as PDF / Screenshot
+                    <i data-lucide="printer"></i> Print / Save Confirmation Receipt
                 </button>
             </div>
 
@@ -361,7 +369,6 @@
             const grid = document.getElementById('calendarGrid');
             grid.innerHTML = '';
 
-            // Today's date with time zeroed out for accurate date-only comparison
             const today = new Date();
             today.setHours(0, 0, 0, 0);
 
@@ -376,14 +383,12 @@
                 const dayOfWeek = dateObj.getDay();
                 const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 
-                // Criteria: Tuesday (2), Wednesday (3), Thursday (4) ONLY
-                const isTueWedThu = (dayOfWeek === 2 || dayOfWeek === 3 || dayOfWeek === 4);
-                // Criteria: Must be today or in the future
+                // Crown Wellness Operating Days: Monday (1) through Friday (5)
+                const isMonToFri = (dayOfWeek >= 1 && dayOfWeek <= 5);
                 const isFutureOrToday = dateObj >= today;
-                // Criteria: Must not be in Katy ISD excluded holiday list
                 const isNotHoliday = !KATY_ISD_EXCLUDED_DATES.includes(dateStr);
 
-                const isAllowed = isTueWedThu && isFutureOrToday && isNotHoliday;
+                const isAllowed = isMonToFri && isFutureOrToday && isNotHoliday;
 
                 const btn = document.createElement('button');
                 btn.type = 'button';
@@ -416,7 +421,7 @@
             
             const [y, m, d] = dateStr.split('-');
             const formatted = new Date(y, m - 1, d).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-            document.getElementById('dateSelectedDisplay').innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-amber-700"></i> Selected Date: <span class="underline">${formatted}</span>`;
+            document.getElementById('dateSelectedDisplay').innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-amber-700"></i> Selected Exam Date: <span class="underline">${formatted}</span>`;
             lucide.createIcons();
         }
 
@@ -424,7 +429,7 @@
             event.preventDefault();
 
             if (!selectedCalendarDate) {
-                alert("Please select an available Tuesday, Wednesday, or Thursday date on the calendar.");
+                alert("Please select an available Monday through Friday date on the calendar.");
                 return;
             }
 
@@ -440,8 +445,8 @@
                 phone: document.getElementById('phoneNumber').value,
                 email: document.getElementById('applicantEmail').value,
                 campus: document.getElementById('campus').value,
-                date: selectedCalendarDate,
-                timeSlot: timeSlot,
+                examDate: selectedCalendarDate,
+                examTime: timeSlot,
                 submittedAt: new Date().toLocaleString()
             };
 
@@ -472,7 +477,7 @@
                 document.getElementById('selectedDate').value = '';
                 document.getElementById('dateSelectedDisplay').innerHTML = `<i data-lucide="info" class="w-4 h-4 text-amber-600"></i> Please select an available highlighted date above.`;
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = `<i data-lucide="send"></i> Confirm & Submit Pick-Up Request`;
+                submitBtn.innerHTML = `<i data-lucide="send"></i> Request Scanned Authorization Form`;
                 renderCalendar();
                 lucide.createIcons();
             });
@@ -481,9 +486,9 @@
         function downloadCalendarEvent() {
             if (!lastSubmittedData) return;
 
-            const [year, month, day] = lastSubmittedData.date.split('-');
-            let hour = parseInt(lastSubmittedData.timeSlot.split(':')[0]);
-            if (lastSubmittedData.timeSlot.includes('PM') && hour !== 12) hour += 12;
+            const [year, month, day] = lastSubmittedData.examDate.split('-');
+            let hour = parseInt(lastSubmittedData.examTime.split(':')[0]);
+            if (lastSubmittedData.examTime.includes('PM') && hour !== 12) hour += 12;
 
             const startDate = new Date(year, month - 1, day, hour, 0, 0);
             const endDate = new Date(year, month - 1, day, hour, 30, 0);
@@ -493,11 +498,11 @@
             const icsContent = [
                 'BEGIN:VCALENDAR',
                 'VERSION:2.0',
-                'PRODID:-//Katy ISD//Physical Pick-Up Scheduler//EN',
+                'PRODID:-//Katy ISD//DOT Physical Form Request//EN',
                 'BEGIN:VEVENT',
-                `SUMMARY:Katy ISD Physical Authorization Pick-Up`,
-                `DESCRIPTION:Pick up physical authorization form at South Transportation Center. Please bring physical Badge ID!`,
-                `LOCATION:South Transportation Center, 3151 Falcon Landing Blvd, Katy, TX 77494`,
+                `SUMMARY:DOT Physical Appointment at Crown Wellness Center`,
+                `DESCRIPTION:Bring your printed authorization form and physical Badge ID to Crown Wellness Center (Dr. Lauren Bhattacharya).`,
+                `LOCATION:Crown Wellness Center, 777 S. Fry Rd., Ste 103, Katy, TX 77450`,
                 `DTSTART:${formatDate(startDate)}`,
                 `DTEND:${formatDate(endDate)}`,
                 'END:VEVENT',
@@ -507,7 +512,7 @@
             const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
             const link = document.createElement('a');
             link.href = window.URL.createObjectURL(blob);
-            link.setAttribute('download', `KatyISD_Physical_Pickup_${lastSubmittedData.date}.ics`);
+            link.setAttribute('download', `DOT_Physical_CrownWellness_${lastSubmittedData.examDate}.ics`);
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -529,12 +534,12 @@
 
             const filtered = responses.filter(r => {
                 const matchesSearch = `${r.firstName} ${r.lastName} ${r.campus} ${r.phone}`.toLowerCase().includes(search);
-                const matchesDate = dateFilter ? r.date === dateFilter : true;
+                const matchesDate = dateFilter ? r.examDate === dateFilter : true;
                 return matchesSearch && matchesDate;
             });
 
             if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-slate-400">No pickup requests found.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-slate-400">No form requests found.</td></tr>`;
                 return;
             }
 
@@ -545,8 +550,8 @@
                     <td class="p-3 font-semibold text-slate-800">${r.firstName} ${r.lastName}</td>
                     <td class="p-3">${r.phone}<br><span class="text-xs text-slate-500">${r.email}</span></td>
                     <td class="p-3"><span class="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md border border-amber-200 text-xs font-medium">${r.campus}</span></td>
-                    <td class="p-3 font-medium text-amber-900">${r.date}</td>
-                    <td class="p-3 text-xs font-semibold">${r.timeSlot}</td>
+                    <td class="p-3 font-medium text-amber-900">${r.examDate}</td>
+                    <td class="p-3 text-xs font-semibold">${r.examTime}</td>
                     <td class="p-3">
                         <button onclick="deleteResponse(${r.id})" class="text-red-600 hover:text-red-800 p-1"><i data-lucide="trash" class="w-4 h-4"></i></button>
                     </td>
@@ -577,17 +582,19 @@
                 alert("No responses to export!");
                 return;
             }
-            let csv = "First Name,Last Name,Phone,Email,Campus/Center,Pickup Date,Pickup Time,Submitted At\n";
+            let csv = "First Name,Last Name,Phone,Email,Campus/Center,Exam Date,Exam Time,Submitted At\n";
             responses.forEach(r => {
-                csv += `"${r.firstName}","${r.lastName}","${r.phone}","${r.email}","${r.campus}","${r.date}","${r.timeSlot}","${r.submittedAt}"\n`;
+                csv += `"${r.firstName}","${r.lastName}","${r.phone}","${r.email}","${r.campus}","${r.examDate}","${r.examTime}","${r.submittedAt}"\n`;
             });
             const blob = new Blob([csv], { type: 'text/csv' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.setAttribute('href', url);
-            a.setAttribute('download', `Physical_Pickup_Requests.csv`);
+            a.setAttribute('download', `DOT_Physical_Requests.csv`);
             a.click();
         }
     </script>
 </body>
 </html>
+
+```
