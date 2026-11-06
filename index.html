@@ -1,10 +1,3 @@
-Here is your fully updated **`index.html`** code incorporating Crown Wellness Center's exact address (**777 S. Fry Rd. Ste 103, Katy, TX 77450**), physician name (**Dr. Lauren Bhattacharya**), and operating hours (**Monday – Friday, 8:00 AM – 4:30 PM**).
-
-The time slot options have also been updated to align with their 4:30 PM closing time.
-
-Copy and replace the entire contents of your `index.html` file on GitHub with this code:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,34 +145,33 @@ Copy and replace the entire contents of your `index.html` file on GitHub with th
                         </p>
                     </div>
 
-                    <!-- Time Slot Options -->
+                    <!-- Time Dropdown Selector (30-Minute Increments) -->
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Select Intended Exam Time Slot *</label>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-                            <label class="border-2 border-slate-200 rounded-xl p-3 text-center cursor-pointer hover:border-amber-500 transition has-[:checked]:border-amber-700 has-[:checked]:bg-amber-100/70">
-                                <input type="radio" name="timeSlot" value="8:30 AM" required class="sr-only">
-                                <div class="font-bold text-slate-800 text-sm">8:30 AM</div>
-                            </label>
-
-                            <label class="border-2 border-slate-200 rounded-xl p-3 text-center cursor-pointer hover:border-amber-500 transition has-[:checked]:border-amber-700 has-[:checked]:bg-amber-100/70">
-                                <input type="radio" name="timeSlot" value="10:00 AM" required class="sr-only">
-                                <div class="font-bold text-slate-800 text-sm">10:00 AM</div>
-                            </label>
-
-                            <label class="border-2 border-slate-200 rounded-xl p-3 text-center cursor-pointer hover:border-amber-500 transition has-[:checked]:border-amber-700 has-[:checked]:bg-amber-100/70">
-                                <input type="radio" name="timeSlot" value="11:30 AM" required class="sr-only">
-                                <div class="font-bold text-slate-800 text-sm">11:30 AM</div>
-                            </label>
-
-                            <label class="border-2 border-slate-200 rounded-xl p-3 text-center cursor-pointer hover:border-amber-500 transition has-[:checked]:border-amber-700 has-[:checked]:bg-amber-100/70">
-                                <input type="radio" name="timeSlot" value="1:30 PM" required class="sr-only">
-                                <div class="font-bold text-slate-800 text-sm">1:30 PM</div>
-                            </label>
-
-                            <label class="border-2 border-slate-200 rounded-xl p-3 text-center cursor-pointer hover:border-amber-500 transition has-[:checked]:border-amber-700 has-[:checked]:bg-amber-100/70">
-                                <input type="radio" name="timeSlot" value="3:00 PM" required class="sr-only">
-                                <div class="font-bold text-slate-800 text-sm">3:00 PM</div>
-                            </label>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Select Intended Exam Time Slot *</label>
+                        <div class="relative">
+                            <select id="timeSlotSelect" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-amber-600 outline-none transition bg-white text-slate-800 font-semibold appearance-none cursor-pointer">
+                                <option value="" disabled selected>-- Select Exam Time Slot --</option>
+                                <option value="8:00 AM">8:00 AM</option>
+                                <option value="8:30 AM">8:30 AM</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="9:30 AM">9:30 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="10:30 AM">10:30 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="11:30 AM">11:30 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="12:30 PM">12:30 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="1:30 PM">1:30 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="2:30 PM">2:30 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="3:30 PM">3:30 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                            </div>
                         </div>
                     </div>
 
@@ -433,11 +425,16 @@ Copy and replace the entire contents of your `index.html` file on GitHub with th
                 return;
             }
 
+            const timeSlot = document.getElementById('timeSlotSelect').value;
+            if (!timeSlot) {
+                alert("Please select an intended exam time slot from the dropdown.");
+                return;
+            }
+
             const submitBtn = document.getElementById('submitBtn');
             submitBtn.disabled = true;
             submitBtn.innerHTML = "Submitting Request...";
 
-            const timeSlot = document.querySelector('input[name="timeSlot"]:checked').value;
             lastSubmittedData = {
                 id: Date.now(),
                 firstName: document.getElementById('firstName').value,
@@ -487,11 +484,14 @@ Copy and replace the entire contents of your `index.html` file on GitHub with th
             if (!lastSubmittedData) return;
 
             const [year, month, day] = lastSubmittedData.examDate.split('-');
-            let hour = parseInt(lastSubmittedData.examTime.split(':')[0]);
-            if (lastSubmittedData.examTime.includes('PM') && hour !== 12) hour += 12;
+            let [timeStr, modifier] = lastSubmittedData.examTime.split(' ');
+            let [hour, minute] = timeStr.split(':').map(Number);
+            
+            if (modifier === 'PM' && hour !== 12) hour += 12;
+            if (modifier === 'AM' && hour === 12) hour = 0;
 
-            const startDate = new Date(year, month - 1, day, hour, 0, 0);
-            const endDate = new Date(year, month - 1, day, hour, 30, 0);
+            const startDate = new Date(year, month - 1, day, hour, minute, 0);
+            const endDate = new Date(startDate.getTime() + 30 * 60000);
 
             const formatDate = (date) => date.toISOString().replace(/-|:|\.\d+/g, '');
 
@@ -596,5 +596,3 @@ Copy and replace the entire contents of your `index.html` file on GitHub with th
     </script>
 </body>
 </html>
-
-```
